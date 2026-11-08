@@ -1,0 +1,77 @@
+/* Base styles */
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+.primary-btn { padding: 12px 24px; font-size: 1em; background: #000; color: #fff; border: none; border-radius: 6px; cursor: pointer; }
+
+/* Modal Overlay & Positioning */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+.modal-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Modal Box */
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+}
+.modal-overlay.hidden .modal-content {
+  transform: translateY(20px);
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 15px; right: 15px;
+  background: none; border: none;
+  font-size: 1.5rem; color: #666;
+  cursor: pointer;
+}
+.close-btn:hover { color: #000; }
+
+/* Form Elements */
+h2 { margin-top: 0; margin-bottom: 20px; }
+.input-group { margin-bottom: 20px; }
+.input-group label { display: block; font-weight: 600; margin-bottom: 8px; }
+input[type="date"] { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-family: inherit; }
+
+.email-group {
+    text-align:left;
+    margin-top: 30px;
+}
+
+.party-size-selector, .time-grid { display: grid; gap: 10px; }
+.party-size-selector { grid-template-columns: repeat(5, 1fr); }
+.time-grid { grid-template-columns: repeat(3, 1fr); }
+
+button.size-btn, button.time-btn {
+  padding: 10px; border: 1px solid #ddd; border-radius: 6px;
+  background: white; cursor: pointer; font-weight: 500;
+}
+button.size-btn.active, button.time-btn.active {
+  background: #000; color: #fff; border-color: #000;
+}
+button.time-btn.available:hover { border-color: #000; }
+button.time-btn.sold-out {
+  opacity: 0.4; background: #f0f0f0; cursor: not-allowed; text-decoration: line-through;
+}
+
+.notify-section { margin-top: 0px; padding-top: 20px; border-top: 1px solid #eee; text-align: center; }
+.scarcity-text { font-size: 0.9em; color: #666; margin-bottom: 10px; }
+.action-btn.notify { width: 100%; background: #000; color: white; padding: 12px; border: none; border-radius: 6px; cursor: pointer; }
