@@ -1,0 +1,38 @@
+body{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #fff8ee;
+    color: #333;
+}
+#about{
+    Margin: auto;
+    max-width: 800px;
+    padding: 50px 20px;
+    text-align: center;
+}
+#about h1{
+    color: darkred;
+    font-size: 36px;
+}
+#about h2{
+    color: darkred;
+    margin-top: 40px;
+}
+#about p{
+    line-height: 1.8;
+}
+footer{
+    background-color: darkred;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+/* Mobile Design */
+@media (max-width: 600px) {
+#about {
+    padding: 25px 15px;
+}
+nav ul{
+    flex-wrap: wrap;
+}
+}
