@@ -1,26 +1,38 @@
-// Modal Toggle Logic
-const modal = document.getElementById('reservationModal');
-const openBtn = document.getElementById('openModalBtn');
-const closeBtn = document.getElementById('closeModalBtn');
+let modal = document.getElementById('reservationModal');
+let openBtn = document.getElementById('openModalBtn');
+let closeBtn = document.getElementById('closeModalBtn');
 
-openBtn.addEventListener('click', () => modal.classList.remove('hidden'));
-closeBtn.addEventListener('click', () => modal.classList.add('hidden'));
+// Open Book TAble Modal
+openBtn.onclick = function() {
+  modal.className = modal.className.replace(" hidden", "");
+};
 
-// Close modal when clicking on the dark background overlay
-modal.addEventListener('click', (e) => {
-  if (e.target === modal) modal.classList.add('hidden');
-});
+closeBtn.onclick = function() {
+  if (modal.className.indexOf("hidden") === -1) {
+    modal.className = modal.className + " hidden";
+  }
+};
 
-// Party Size Selection
-const sizeButtons = document.querySelectorAll('.size-btn');
-sizeButtons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    sizeButtons.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-  });
-});
+// Close the Book Table modal when clicking outside of it
+modal.onclick = function(event) {
+  if (event.target === modal && modal.className.indexOf("hidden") === -1) {
+    modal.className = modal.className + " hidden";
+  }
+};
 
-// Simulated Database (Mock Backend)
+// Party Size button functionality
+let sizeButtons = document.getElementsByClassName('size-btn');
+
+for (let i = 0; i < sizeButtons.length; i++) {
+  sizeButtons[i].onclick = function() {
+    for (let j = 0; j < sizeButtons.length; j++) {
+      sizeButtons[j].className = sizeButtons[j].className.replace(" active", "");
+    }
+    this.className = this.className + " active";
+  };
+}
+
+// Simulated Database for the options of time slots based on the selected date
 const dummyDatabase = {
   "2026-11-09": [
     { time: "6:00 PM", available: false },
@@ -48,46 +60,77 @@ const dummyDatabase = {
   ]
 };
 
-// Function to render time slots dynamically
+// Show time slots based on the selected date given its on the database
 function renderTimeSlots(dateString) {
-  const timeGrid = document.getElementById('timeGrid');
-  timeGrid.innerHTML = ''; // Clear existing times
+  let timeGrid = document.getElementById('timeGrid');
+  let times = dummyDatabase[dateString];
   
-  // Fetch data for the selected date, or use the completely sold-out default
-  const times = dummyDatabase[dateString] || dummyDatabase["default"];
-  
-  times.forEach(slot => {
-    const btn = document.createElement('button');
-    btn.innerText = slot.time;
+  if (!times) {
+    times = dummyDatabase["default"];
+  }
+
+  let htmlString = "";
+
+  for (let i = 0; i < times.length; i++) {
+    let slot = times[i];
     
     if (slot.available) {
-      btn.className = 'time-btn available';
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.time-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-      });
+      htmlString += "<button class='time-btn available' onclick='selectTime(this)'>" + slot.time + "</button>";
     } else {
-      btn.className = 'time-btn sold-out';
-      btn.disabled = true;
+      htmlString += "<button class='time-btn sold-out' disabled>" + slot.time + "</button>";
     }
-    
-    timeGrid.appendChild(btn);
-  });
+  }
+
+  timeGrid.innerHTML = htmlString;
 }
 
-// Listen for date changes to update the UI
-const dateInput = document.getElementById('date');
-dateInput.addEventListener('change', (e) => {
-  renderTimeSlots(e.target.value);
-});
+function selectTime(clickedButton) {
+  let timeButtons = document.getElementsByClassName('time-btn');
+  for (let i = 0; i < timeButtons.length; i++) {
+    timeButtons[i].className = timeButtons[i].className.replace(" active", "");
+  }
+  clickedButton.className = clickedButton.className + " active";
+}
 
-// Initial Render
+let dateInput = document.getElementById('date');
+dateInput.onchange = function(event) {
+  renderTimeSlots(event.target.value);
+};
+
+
 renderTimeSlots(dateInput.value);
 
-// Notify Button Action
-document.getElementById('notifyBtn').addEventListener('click', () => {
-  const date = document.getElementById('date').value;
-  const partySize = document.querySelector('.size-btn.active').innerText;
-  alert(`Prototype Alert: Added to the waitlist for a party of ${partySize} on ${date}.`);
-  modal.classList.add('hidden'); // Close modal on completion
-});
+// Alert Button (confirmation of the reservation)
+document.getElementById('notifyBtn').onclick = function() {
+  let date = document.getElementById('date').value;
+  let activeSizeBtns = document.getElementsByClassName('size-btn active');
+  let partySize = "";
+  
+  if (activeSizeBtns.length > 0) {
+    partySize = activeSizeBtns[0].innerHTML;
+  }
+
+  alert("Prototype Alert: Added to the waitlist for a party of " + partySize + " on " + date + ".");
+  modal.style.display = "none";
+};
+
+// Hamburger menu functionality
+let hamburger = document.getElementsByClassName("hamburger")[0];
+let navUl = document.getElementsByTagName("ul")[0]; 
+
+// Toggle the navigation menu
+hamburger.onclick = function() {
+  if (navUl.className.indexOf("ativo") === -1) {
+    navUl.className = navUl.className + " ativo";
+  } else {
+    navUl.className = navUl.className.replace(" ativo", "");
+  }
+};
+
+// Close the navigation menu
+let navLinks = navUl.getElementsByTagName("a");
+for (let i = 0; i < navLinks.length; i++) {
+  navLinks[i].onclick = function() {
+    navUl.className = navUl.className.replace(" ativo", "");
+  };
+}

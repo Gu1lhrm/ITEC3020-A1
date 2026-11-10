@@ -15,17 +15,26 @@
 <body>
   <header>
     <div class="wrap bar">
+
+      <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span class="bar-line"></span>
+        <span class="bar-line"></span>
+        <span class="bar-line"></span>
+      </button>
+
       <nav aria-label="Primary">
         <ul>
-            <li><a href="index.html" class="active" aria-current="page">Home</a></li>
-            <li><a href="html/about.html">About us</a></li>
-            <li><a href="menu.html">Menu</a></li>
+            <li><a href="#home" class="active" aria-current="page">Home</a></li>
+            <li><a href="pages/about.html">About us</a></li>
+            <li><a href="pages/menu.html">Menu</a></li>
         </ul>
       </nav>
     </div>
   </header>
+
+
   <main>
-  <img src="images/restaurant.jpg" alt="Italian restaurant" class="restaurant-img">
+    <img src="images/restaurant.jpg" alt="Italian restaurant" class="restaurant-img">
     <section class="home">
       <h1>Italot</h1>
       <h2>Welcome to Italot Restaurant</h2>
@@ -35,7 +44,6 @@
       <a href="menu.html">Explore Our Menu</a>
       <button id="openModalBtn" class="primary-btn">Book a Table</button>
 
-      <!-- The Modal Overlay -->
       <div id="reservationModal" class="modal-overlay hidden">
       <div class="modal-content">
           <button id="closeModalBtn" class="close-btn">&times;</button>
@@ -60,7 +68,6 @@
 
           <div class="time-slots-container">
           <label>Available Times</label>
-          <!-- Time slots will be injected here by JavaScript -->
           <div id="timeGrid" class="time-grid"></div>
           </div>
 
@@ -100,7 +107,7 @@
             </p>
         </div>
     </section>
-    </main>
+  </main>
 <footer>
   <p>&copy; 2026 Italot Restaurant. All rights reserved.</p>
 </footer>
