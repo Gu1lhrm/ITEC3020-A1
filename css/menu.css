@@ -1,7 +1,47 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #fff8ee;
+    color: #333;
+}
+
+/* Menu  */
+.menu {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.menu h1 {
+    font-family: Georgia, serif;
+    font-size: 40px;
+    color: #7b2525;
+}
+
+.menu > p {
+    line-height: 1.6;
+}
+
+/* Search and category */
+.filters {
+    margin: 30px 0;
+}
+
+.filters input,
+.filters select {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Food itens */
 .menu-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px;
+    gap: 25px;
     max-width: 900px;
     margin: 30px auto;
 }
@@ -11,6 +51,7 @@
     background-color: white;
     border-radius: 10px;
     overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .menu-item img {
@@ -20,12 +61,50 @@
     object-fit: cover;
 }
 
+.menu-item h2 {
+    color: #7b2525;
+    padding: 0 15px;
+}
+
+.menu-item p {
+    padding: 0 15px;
+    line-height: 1.5;
+}
+
+.menu-item .price {
+    font-weight: bold;
+    color: #7b2525;
+    padding-bottom: 15px;
+}
+
+/* Footer */
+footer {
+    background-color: #7b2525;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Design pro cell */
 @media (max-width: 600px) {
+    .menu {
+        padding: 25px 15px;
+    }
+
+    .menu h1 {
+        font-size: 32px;
+    }
+
     .menu-grid {
         grid-template-columns: 1fr;
     }
 
     .menu-item img {
         height: 180px;
+    }
+
+    .filters input,
+    .filters select {
+        width: 100%;
     }
 }
