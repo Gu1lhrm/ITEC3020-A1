@@ -1,0 +1,117 @@
+body{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #fff8ee;
+    color: #333;
+}
+/*For the restaurant image used on the home page*/
+.restaurant-img{
+    display: block;
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+/*For the Home section*/
+.home{
+    text-align: center;
+    padding: 60px 20px;
+}
+.home h1{
+    font-family: Georgia, serif;
+    color: darkred;
+    font-size: 55px;
+    margin-bottom: 10px;
+}
+.home h2{
+    font-size: 24px;
+    font-weight: normal;
+    color: #555;
+}
+.home p{
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 25px auto;
+    font-size: 17px;
+}
+.home a{
+    display: inline-block;
+    background-color: darkred;
+    color: white;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 6px;
+}
+.home a:hover{
+    background-color: #5a1919;
+}
+/*For the popular dishes section*/
+.featured{
+    background-color: #f5ebdd;
+    text-align: center;
+    padding: 50px 20px;
+}
+.featured h2{
+    color: #7b2525;
+    font-size: 32px;
+    font-family: Georgia, serif;
+}
+.featured > p{
+    color: #555;
+    margin-bottom: 30px;
+}
+.food {
+    display: inline-block;
+    background-color: white;
+    width: 280px;
+    margin: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    vertical-align: top;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.food img {
+    display: block;
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+}
+.food h3 {
+    color: #7b2525;
+    margin: 20px 15px 10px;
+}
+.food p {
+    padding: 0 20px 20px;
+    line-height: 1.6;
+}
+/*For the footer section*/
+footer{
+    background-color: darkred;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+}
+/* Mobile Design */
+@media (max-width: 600px) {
+    .restaurant-img{
+        height: 220px;
+    }
+.home {
+    padding: 25px 15px;
+  }
+.home h1{
+    font-size: 32px;
+}
+.home h2{
+    font-size: 20px;
+}
+.food {
+    display: block;
+    width: auto;
+    max-width: 300px;
+    margin: 15px auto;
+}
+nav ul{
+    flex-wrap: wrap;
+}
+}
