@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 1</title>
+
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/menu.css">
+</head>
+
+<body>
+    <header>
+        <div class="wrap bar">
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="pages/about.html">About us</a></li>
+                    <li><a href="menu.html" class="active" aria-current="page">Menu</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="menu">
+            <h1>Our Menu</h1>
+            <p>Explore some of our traditional Italian dishes.</p>
+
+            <div class="filters">
+                <label for="search">Search:</label>
+                <input type="text" id="search" placeholder="Search for a dish">
+
+                <label for="category">Category:</label>
+                <select id="category">
+                    <option value="all">All dishes</option>
+                    <option value="pizza">Pizza</option>
+                    <option value="pasta">Pasta</option>
+                </select>
+            </div>
+
+            <p id="results" aria-live="polite"></p>
+
+            <div class="menu-grid">
+
+                <div class="menu-item" data-name="lasagna bolognese" data-category="pasta">
+                    <img src="images/lasagna.jpg" alt="Lasagna Bolognese">
+                    <h2>Lasagna Bolognese</h2>
+                    <p>Category: Pasta</p>
+                    <p>Layers of pasta with meat sauce and creamy béchamel sauce.</p>
+                    <p class="price">$18.99</p>
+                </div>
+
+                <div class="menu-item" data-name="margherita pizza" data-category="pizza">
+                    <img src="images/pizza.jpg" alt="Margherita Pizza">
+                    <h2>Margherita Pizza</h2>
+                    <p>Category: Pizza</p>
+                    <p>Traditional pizza with tomato sauce, mozzarella, and fresh basil.</p>
+                    <p class="price">$15.99</p>
+                </div>
+
+                <div class="menu-item" data-name="carbonara" data-category="pasta">
+                    <img src="images/carbonara.jpg" alt="Carbonara">
+                    <h2>Carbonara</h2>
+                    <p>Category: Pasta</p>
+                    <p>Pasta with eggs, cheese, black pepper, and pancetta.</p>
+                    <p class="price">$20.99</p>
+                </div>
+
+                <div class="menu-item" data-name="gnocchi" data-category="pasta">
+                    <img src="images/gnocchi.jpg" alt="Gnocchi">
+                    <h2>Gnocchi</h2>
+                    <p>Category: Pasta</p>
+                    <p>Soft potato dumplings served with tomato sauce and parmesan.</p>
+                    <p class="price">$17.99</p>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Italot Restaurant. All rights reserved.</p>
+    </footer>
+
+    <script src="javascript/menu.js"></script>
+</body>
+</html>
