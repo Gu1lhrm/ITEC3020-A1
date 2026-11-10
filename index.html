@@ -12,19 +12,26 @@
 <body>
   <header>
     <div class="wrap bar">
+
+      <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span class="bar-line"></span>
+        <span class="bar-line"></span>
+        <span class="bar-line"></span>
+      </button>
+
       <nav aria-label="Primary">
         <ul>
             <li><a href="index.html" class="active" aria-current="page">Home</a></li>
-            <li><a href="about.html">About us</a></li>
-            <li><a href="menu.html">Menu</a></li>
-            <li><a href="form/form.html">Reservations</a></li>
-
+            <li><a href="pages/about.html">About us</a></li>
+            <li><a href="pages/menu.html">Menu</a></li>
         </ul>
       </nav>
     </div>
   </header>
+
+
   <main>
-  <img src="images/restaurant.jpg" alt="Italian restaurant" class="restaurant-img">
+    <img src="images/restaurant.jpg" alt="Italian restaurant" class="restaurant-img">
     <section class="home">
       <h1>Italot</h1>
       <h2>Welcome to Italot Restaurant</h2>
@@ -32,6 +39,46 @@
         Welcome to Italot Restaurant, a place where we serve traditional Italian food made with fresh ingredients. We offer different Italian dishes, including pasta, pizza, and more.
       </p>
       <a href="menu.html">Explore Our Menu</a>
+      <button id="openModalBtn" class="primary-btn">Book a Table</button>
+
+      <div id="reservationModal" class="modal-overlay hidden">
+      <div class="modal-content">
+          <button id="closeModalBtn" class="close-btn">&times;</button>
+          
+          <h2>Book a Table</h2>
+          
+          <div class="input-group">
+          <label for="date">Date</label>
+          <input type="date" id="date" value="2026-11-09">
+          </div>
+
+          <div class="input-group">
+          <label>Party Size</label>
+          <div class="party-size-selector">
+              <button class="size-btn">1</button>
+              <button class="size-btn active">2</button>
+              <button class="size-btn">3</button>
+              <button class="size-btn">4</button>
+              <button class="size-btn">5+</button>
+          </div>
+          </div>
+
+          <div class="time-slots-container">
+          <label>Available Times</label>
+          <div id="timeGrid" class="time-grid"></div>
+          </div>
+
+          <div class="email-group">
+              <label>Email Address</label>
+              <input type="email" id="notifyEmail" placeholder="Enter your email address" required>
+          </div>
+
+          <div class="notify-section">
+          <p class="scarcity-text">Can't find your preferred time?</p>
+          <button id="notifyBtn" class="action-btn notify">Set a Notify Alert</button>
+          </div>
+      </div>
+      </div>
     </section>
 
     <section class="featured">
@@ -57,7 +104,7 @@
             </p>
         </div>
     </section>
-    </main>
+  </main>
 <footer>
   <p>&copy; 2026 Italot Restaurant. All rights reserved.</p>
 </footer>
